@@ -4,7 +4,7 @@
       "employement_type",
       "job_function",
       "location",
-      "skills"
+      "key_skills"
     ],
     "properties": {
       "job_function": {
@@ -22,7 +22,7 @@
       "max_exp": {
         "type": "string"
       },
-      "skills": {
+      "key_skills": {
         "type": "array",
         "items": {
           "type": "string"
