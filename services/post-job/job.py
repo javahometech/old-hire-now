@@ -6,7 +6,7 @@ dynamodb = boto3.resource('dynamodb')
 table_name=os.environ['TABLE_NAME']
 table = dynamodb.Table(table_name)
 
-def add(event, context):
+def post(event, context):
     print(event)
     try:
         resp = {
