@@ -20,7 +20,7 @@
   sls package
 ```
 
-## 3. Deploy the project
+## 4. Deploy the project
 
 ```
   sls deploy
