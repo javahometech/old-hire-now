@@ -1,0 +1,37 @@
+postJob:
+  handler: services/post-job/job.post
+  versionFunctions: false
+  name: postJobFunction
+  package:
+    include:
+      - services/post-job/job.py
+  environment:
+    TABLE_NAME: ${self:custom.studentsTable}
+    SNS_ARN: 'arn:aws:sns:us-east-1:353848682332:javahome'
+  events:
+    - http:
+        method: post
+        path: job
+        integration: lambda
+        reqValidatorName: onlyBody
+        requestModels:
+          "application/json": "PostJobRequest"
+        request:
+          template:
+            application/json: ''
+        response:
+          headers:
+            Content-Type: "'application/json'"
+          template: $input.path('$')
+          statusCodes:
+              200:
+                  pattern: '' # Default response method
+                  template: ${file(templates/200.jsonx)}
+              500:
+                  pattern: '.*"statusCode":.*500.*' # JSON response
+                  template: ${file(templates/500.jsonx)}
+                  headers:
+                    Content-Type: "'application/json'"
+  tags:
+    App: ${self:service}
+    Location: Banglore

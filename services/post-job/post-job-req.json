@@ -1,0 +1,40 @@
+{
+    "type": "object",
+    "required": [
+      "employement_type",
+      "job_function",
+      "location",
+      "skills"
+    ],
+    "properties": {
+      "job_function": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "location": {
+        "type": "string"
+      },
+      "min_exp": {
+        "type": "string"
+      },
+      "max_exp": {
+        "type": "string"
+      },
+      "skills": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "employement_type": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "title": "PostJobRequest",
+    "description": "PostJobRequest Model"
+  }

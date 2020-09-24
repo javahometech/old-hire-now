@@ -1,0 +1,20 @@
+---
+    Resources:
+      javahomestudents:
+        Type: AWS::DynamoDB::Table
+        Properties:
+          TableName: ${self:custom.studentsTable}
+          AttributeDefinitions:
+            - AttributeName: job_id
+              AttributeType: S
+            - AttributeName: time_stamp
+              AttributeType: S
+          KeySchema:
+            - AttributeName: job_id
+              KeyType: HASH
+            - AttributeName: time_stamp
+              KeyType: RANGE
+          # Set the capacity based on the stage
+          ProvisionedThroughput:
+            ReadCapacityUnits: 5
+            WriteCapacityUnits: 5
